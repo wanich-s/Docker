@@ -1,0 +1,25 @@
+Youtube url : https://www.youtube.com/watch?v=YuItTp9tf8s
+Download Docker
+    cmd: docker --version
+Download postgres
+    cmd: docker pull postgres
+Show all images
+    cmd: docker images
+Run image
+    cmd: docker run --name pegasus --rm -e POSTGRES_PASSWORD=banana -d -p 5432:5432 postgres
+Run image persist data
+    cmd: docker run --name pegasus --rm -e POSTGRES_PASSWORD=banana -d -p 5432:5432 -v pgdatavolume:/var/lib/postgresql/data postgres
+Show runing status    
+    cmd: docker ps -a
+Run psql
+    cmd: docker exec -it pegasus psql -U postgres
+    Or cmd: psql -U postgres -h localhost
+    cmd: \l
+    cmd: create database foody;
+    cmd: \c foody;
+    cmd: \d
+    cmd: create table menu(id int, descr text, price int);
+    cmd: insert into menu values(1, 'rice', 15), (2, 'water', 8);
+    cmd: select * from menu;
+    cmd: \q
+    cmd: docker stop pegasus
